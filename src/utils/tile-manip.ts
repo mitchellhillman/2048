@@ -1,7 +1,7 @@
 const shiftStackLeft = (stack: number[]) => {
     return stack.map((value, index) => {
-        // fake simple math to prive something happened
-         if(value > 0) {
+        const next = stack[index+1]
+         if(value > 0 && next === value) {
             return value + stack[index+1]
          }
          return value

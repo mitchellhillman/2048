@@ -8,8 +8,8 @@
 }
 .board {
   border: 1px solid black;
-  height: 490px;
-  width: 490px;
+  height: 480px;
+  width: 480px;
   margin: 50px;
   display: flex;
   flex-wrap: wrap;
