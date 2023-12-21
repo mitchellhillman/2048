@@ -1,7 +1,6 @@
 import { NgFor, NgIf } from '@angular/common';
 import { Component, HostListener } from '@angular/core';
-import genNewTiles from '../utils/genNewTiles';
-import {shiftTilesUp, shiftTilesLeft} from '../utils/shiftTiles';
+import {shiftTilesUp, shiftTilesLeft, genNewTiles} from '../utils/tile-manip';
 @Component({
   selector: 'app-root',
   standalone: true,
