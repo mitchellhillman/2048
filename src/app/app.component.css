@@ -15,7 +15,7 @@
   flex-wrap: wrap;
   padding: 10px;
 }
-.cell {
+.tile {
   width: 100px;
   height: 100px;
   background: #efefef;

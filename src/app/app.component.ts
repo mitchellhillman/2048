@@ -1,5 +1,6 @@
 import { NgFor, NgIf } from '@angular/common';
 import { Component, HostListener } from '@angular/core';
+import genNewTiles from '../utils/genNewTiles';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -11,14 +12,20 @@ import { Component, HostListener } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
+  
+  tiles:number[] = [
+    0,0,0,0,
+    0,0,0,0,
+    0,0,0,0,
+    0,0,0,0
+  ]
+
+  constructor() {
+    this.tiles = genNewTiles(this.tiles)
+  }
+
   title = '2048';
 
-  cells = [
-    2, 4, 0, 0,
-    0, 0, 4, 0,
-    2, 4, 0, 0,
-    2, 4, 0, 0,
-  ]
 
   moveUp() {
     console.log('UP')
