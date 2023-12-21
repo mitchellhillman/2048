@@ -1,4 +1,7 @@
-<h1>{{title}}</h1>
+<div class="header">
+    <h1>{{title}}</h1>
+    <p>Use W,A,S,D keys to slide tiles. Combine tiles to win.</p>
+</div>
 <ol class="board">
     <li class="cell" *ngFor="let cell of cells; ">
     <span *ngIf="cell > 0">{{cell}}</span>

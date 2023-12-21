@@ -1,7 +1,10 @@
 :host {
 }
-:host h1 {
+:host .header {
   margin: 50px;
+}
+:host h1 {
+  margin: 0 0 20px 0;
   font-size: 48px;
   font-weight: bold;
 }
