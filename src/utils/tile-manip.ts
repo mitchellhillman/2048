@@ -1,6 +1,9 @@
 const shiftStackLeft = (stack: number[]) => {
     return stack.map((value, index) => {
         const next = stack[index+1]
+        const prev = stack[index-1]
+        console.log('prev', prev)
+        console.log('next', next)
          if(value > 0 && next === value) {
             return value + stack[index+1]
          }
