@@ -16,9 +16,8 @@ export class AppComponent {
 
   cells = [
     2, 4, 0, 0,
-    2, 4, 0, 0,
+    0, 0, 4, 0,
     2, 4, 0, 0,
     2, 4, 0, 0,
   ]
-
 }

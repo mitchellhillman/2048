@@ -1,6 +1,6 @@
 <h1>{{title}}</h1>
 <ol class="board">
     <li class="cell" *ngFor="let cell of cells; ">
-    {{cell}}
+    <span *ngIf="cell > 0">{{cell}}</span>
     </li>
 </ol>
