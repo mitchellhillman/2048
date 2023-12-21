@@ -1,6 +1,7 @@
 import { NgFor, NgIf } from '@angular/common';
 import { Component, HostListener } from '@angular/core';
 import genNewTiles from '../utils/genNewTiles';
+import {shiftTilesUp, shiftTilesLeft} from '../utils/shiftTiles';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -17,7 +18,7 @@ export class AppComponent {
     0,0,0,0,
     0,0,0,0,
     0,0,0,0,
-    0,0,0,0
+    0,0,0,0,
   ]
 
   constructor() {
@@ -27,19 +28,21 @@ export class AppComponent {
   title = '2048';
 
 
-  moveUp() {
+  handleUp() {
     console.log('UP')
+    this.tiles = shiftTilesUp(this.tiles)
   }
 
-  moveLeft() {
+  handleLeft() {
     console.log('LEFT')
+    this.tiles = shiftTilesLeft(this.tiles)
   }
 
-  moveDown() {
+  handleDown() {
     console.log('DOWN')
   }
 
-  moveRight() {
+  handleRight() {
     console.log('RIGHT')
   }
 
@@ -47,28 +50,28 @@ export class AppComponent {
   handleKeyboardEvent({key}: KeyboardEvent) {
     switch(key) {
       case 'ArrowUp':
-         this.moveUp()
+         this.handleUp()
          return;
       case 'ArrowLeft':
-         this.moveLeft()
+         this.handleLeft()
          return;
       case 'ArrowDown':
-         this.moveDown()
+         this.handleDown()
          return;
       case 'ArrowRight':
-         this.moveRight()
+         this.handleRight()
          return;
       case 'w':
-         this.moveUp()
+         this.handleUp()
          return;
       case 'a':
-         this.moveLeft()
+         this.handleLeft()
          return;
       case 's':
-         this.moveDown()
+         this.handleDown()
          return;
       case 'd':
-         this.moveRight()
+         this.handleRight()
          return;
       default: 
          return;
