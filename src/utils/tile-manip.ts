@@ -1,14 +1,19 @@
-const shiftStackLeft = (stack: number[]) => {
-    return stack.map((value, index) => {
-        const next = stack[index+1]
-        const prev = stack[index-1]
-        console.log('prev', prev)
-        console.log('next', next)
-         if(value > 0 && next === value) {
-            return value + stack[index+1]
-         }
-         return value
-     })
+export const shiftStackLeft = (stack: number[]) => {
+    const values = stack.filter(value => value)
+
+    const added = values.reduce<number[]>((acc, curr, index) => {
+        const prev = values[index - 1]
+        const next = values[index + 1]        
+        if(curr === next) {
+            acc.push(curr + next)            
+        } else if(curr !==prev) {
+            acc.push(curr)
+        }
+        return acc
+    }, [])
+    
+    const zeros = Array(4 - added.length).fill(0)
+    return added.concat(zeros)
 }
 
 const modifyGroup = (array:Array<number[]>, modifier: Function) => {
