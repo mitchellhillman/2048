@@ -22,8 +22,13 @@
   margin: 10px;
   text-align: center;
   font-size: 72px;
-  line-height: 100px;
   font-weight: bold;
+}
+.tile span {
+  line-height: 100px;
+  width: 100px;
+  height: 100px;
+  display: block;
 }
 .new {
 	opacity: 1;
@@ -31,6 +36,51 @@
 	animation-iteration-count: 1;
 	animation-timing-function: ease-in;
 	animation-duration: 0.5s;
+}
+.two {
+  font-size: 72px;
+  background: #fde725;
+}
+.four {
+  font-size: 72px;
+  background: #fde725;
+}
+.eight {
+  font-size: 72px;
+  background: #bddf26;
+}
+.sixteen {
+  font-size: 72px;
+  background: #bddf26;
+}
+.thirtytwo {
+  font-size: 72px;
+  background: #7ad151;
+}
+.sixtyfour {
+  font-size: 72px;
+  background: #7ad151;
+}
+.onetwentyeight {
+  font-size: 52px;
+  
+  background: #44bf70;
+}
+.twofiftysix {
+  font-size: 52px;
+  background: #44bf70;
+}
+.fivetwelve {
+  font-size: 52px;
+  background: #22a884;
+}
+.tentwentyfour {
+  font-size: 38px;
+  background: #22a884;
+}
+.twentyfortyeight {
+  font-size: 38px;
+  background: #22a884;
 }
 
 @keyframes fadeInOpacity {

@@ -5,7 +5,20 @@
 <ol class="board">
     <li class="tile" *ngFor="let tile of tiles; index as tileIndex">
     <span
-    [class.new]="diff[tileIndex]"
+    [ngClass]="{
+        'new': diff[tileIndex], 
+        'two': tile === 2,
+        'four': tile === 4,
+        'eight': tile === 8,
+        'sixteen': tile === 16,
+        'thirtytwo': tile === 32,
+        'sixtyfour': tile === 64,
+        'onetwentyeight': tile === 128,
+        'twofiftysix': tile === 256,
+        'fivetwelve': tile === 512,
+        'tentwentyfour': tile === 1024,
+        'twentyfortyeight': tile === 2048 
+    }"
     *ngIf="tile > 0">{{tile}}</span>
     </li>
 </ol>

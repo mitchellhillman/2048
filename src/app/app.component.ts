@@ -1,4 +1,4 @@
-import { NgFor, NgIf } from '@angular/common';
+import { NgClass, NgFor, NgIf } from '@angular/common';
 import { Component, HostListener } from '@angular/core';
 import {slideTilesUp, slideTilesLeft, genNewTile, slideTilesDown, slideTilesRight, tileDiff} from '../utils/tile-manip';
 import constants from '../utils/constants';
@@ -7,7 +7,8 @@ import constants from '../utils/constants';
   standalone: true,
   imports: [
     NgFor,
-    NgIf
+    NgIf,
+    NgClass
   ],
   templateUrl: `./app.component.html`,
   styleUrls: ['./app.component.css'],
