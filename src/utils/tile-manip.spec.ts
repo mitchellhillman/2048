@@ -1,4 +1,4 @@
-import {slideStackLeft, slideStackRight} from './tile-manip'
+import {slideStackLeft, slideStackRight, tileDiff} from './tile-manip'
 
 describe('slideStackLeft', () => {
     it('has tile on the left', () => {
@@ -93,5 +93,13 @@ describe('slideStackRight', () => {
         const result = slideStackRight([2,2,2,2]);
         const expected = [0,0,4,4]
         expect(JSON.stringify(result)).toBe(JSON.stringify(expected))
+    })
+})
+
+describe('tileDiff', () => {
+    it('should return array booleans (true means diff found)', () => {
+        const result = tileDiff([1,2,3], [1,2,300])
+        const expected = [false, false, true]
+        expect(JSON.stringify(result)).toEqual(JSON.stringify(expected))
     })
 })

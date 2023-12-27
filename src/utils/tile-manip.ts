@@ -13,6 +13,12 @@ const combineStack = (stack: number[]) => {
         }, [])
 }
 
+export const tileDiff = (arr1: number[], arr2: number[]) => {
+    return arr1.map((val, index) => {
+        return val !== arr2[index]
+    })
+}
+
 export const slideStackLeft = (stack: number[]) => {
     const combined = combineStack(stack)
     const zeros = Array(4 - combined.length).fill(0)

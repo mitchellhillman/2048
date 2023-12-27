@@ -1,6 +1,7 @@
 import { NgFor, NgIf } from '@angular/common';
 import { Component, HostListener } from '@angular/core';
-import {slideTilesUp, slideTilesLeft, genNewTile, slideTilesDown, slideTilesRight} from '../utils/tile-manip';
+import {slideTilesUp, slideTilesLeft, genNewTile, slideTilesDown, slideTilesRight, tileDiff} from '../utils/tile-manip';
+import constants from '../utils/constants';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -11,14 +12,11 @@ import {slideTilesUp, slideTilesLeft, genNewTile, slideTilesDown, slideTilesRigh
   templateUrl: `./app.component.html`,
   styleUrls: ['./app.component.css'],
 })
+
 export class AppComponent {
   
-  tiles:number[] = [
-    0,0,0,0,
-    0,0,0,0,
-    0,0,0,0,
-    0,0,0,0,
-  ]
+  tiles:number[] = constants.BLANKBOARD
+  diff:boolean[] = constants.NODIFF
 
   constructor() {
     this.tiles = genNewTile(this.tiles)
@@ -27,19 +25,27 @@ export class AppComponent {
   title = '2048';
 
   handleUp() {
-    this.tiles = slideTilesUp(this.tiles)
+    const newBoard = slideTilesUp(this.tiles)
+    this.diff = tileDiff(this.tiles, newBoard)
+    this.tiles = newBoard
   }
 
   handleLeft() {
-    this.tiles = slideTilesLeft(this.tiles)
+    const newBoard = slideTilesLeft(this.tiles)
+    this.diff = tileDiff(this.tiles, newBoard)
+    this.tiles = newBoard
   }
 
   handleDown() {
-    this.tiles = slideTilesDown(this.tiles)
+    const newBoard = slideTilesDown(this.tiles)
+    this.diff = tileDiff(this.tiles, newBoard)
+    this.tiles = newBoard
   }
 
   handleRight() {
-    this.tiles = slideTilesRight(this.tiles)
+    const newBoard = slideTilesRight(this.tiles)
+    this.diff = tileDiff(this.tiles, newBoard)
+    this.tiles = newBoard
   }
 
   @HostListener('document:keydown', ['$event']) 

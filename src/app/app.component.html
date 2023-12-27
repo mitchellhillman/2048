@@ -3,7 +3,9 @@
     <p>Use W,A,S,D keys to slide tiles. Combine tiles to win.</p>
 </div>
 <ol class="board">
-    <li class="tile" *ngFor="let tile of tiles; ">
-    <span *ngIf="tile > 0">{{tile}}</span>
+    <li class="tile" *ngFor="let tile of tiles; index as tileIndex">
+    <span
+    [class.new]="diff[tileIndex]"
+    *ngIf="tile > 0">{{tile}}</span>
     </li>
 </ol>
