@@ -82,7 +82,7 @@ const splitIntoRows = (tiles: number[], size: number) => {
     return rows
 }
 
-export const genNewTiles =  (tiles: number[]) => {
+export const genNewTile =  (tiles: number[]) => {
 
     const selectRandomFromArray = (array: number[]) => {
         return array[Math.floor(Math.random() * array.length)]
@@ -113,7 +113,7 @@ export const shiftTilesUp = (tiles: number[]) => {
     const columns = splitIntoColumns(tiles, 4)
     const shifted = modifyGroup(columns, shiftStackLeft)
     const flattened = flattenColumns(shifted)
-    const newTilesAdded = genNewTiles(flattened)
+    const newTilesAdded = genNewTile(flattened)
     return newTilesAdded
 }
 
@@ -121,7 +121,7 @@ export const shiftTilesDown = (tiles: number[]) => {
     const columns = splitIntoColumns(tiles, 4)
     const shifted = modifyGroup(columns, shiftStackRight)
     const flattened = flattenColumns(shifted)
-    const newTilesAdded = genNewTiles(flattened)
+    const newTilesAdded = genNewTile(flattened)
     return newTilesAdded
 }
 
@@ -129,7 +129,7 @@ export const shiftTilesLeft = (tiles: number[]) => {
     const columns = splitIntoRows(tiles, 4)
     const shifted = modifyGroup(columns, shiftStackLeft)
     const flattened = shifted.flat()
-    const newTilesAdded = genNewTiles(flattened)
+    const newTilesAdded = genNewTile(flattened)
     return newTilesAdded
 }
 
@@ -137,6 +137,6 @@ export const shiftTilesRight = (tiles: number[]) => {
     const columns = splitIntoRows(tiles, 4)
     const shifted = modifyGroup(columns, shiftStackRight)
     const flattened = shifted.flat()
-    const newTilesAdded = genNewTiles(flattened)
+    const newTilesAdded = genNewTile(flattened)
     return newTilesAdded
 }

@@ -1,6 +1,6 @@
 import { NgFor, NgIf } from '@angular/common';
 import { Component, HostListener } from '@angular/core';
-import {shiftTilesUp, shiftTilesLeft, genNewTiles, shiftTilesDown, shiftTilesRight} from '../utils/tile-manip';
+import {shiftTilesUp, shiftTilesLeft, genNewTile, shiftTilesDown, shiftTilesRight} from '../utils/tile-manip';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -21,11 +21,10 @@ export class AppComponent {
   ]
 
   constructor() {
-    this.tiles = genNewTiles(this.tiles)
+    this.tiles = genNewTile(this.tiles)
   }
 
   title = '2048';
-
 
   handleUp() {
     this.tiles = shiftTilesUp(this.tiles)
