@@ -1,12 +1,12 @@
 export const shiftStackLeft = (stack: number[]) => {
     const values = stack.filter(value => value)
-
-    const added = values.reduce<number[]>((acc, curr, index) => {
-        const prev = values[index - 1]
-        const next = values[index + 1]        
-        if(curr === next) {
-            acc.push(curr + next)            
-        } else if(curr !==prev) {
+    
+    const added = values.reduce<number[]>((acc, curr, index) => {        
+        const prev = acc[acc.length - 1]
+        
+        if(curr === prev) {
+            acc.splice(acc.length-1, 1, curr + prev)
+        } else {
             acc.push(curr)
         }
         return acc
