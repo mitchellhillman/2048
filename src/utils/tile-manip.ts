@@ -16,6 +16,24 @@ export const shiftStackLeft = (stack: number[]) => {
     return combined.concat(zeros)
 }
 
+export const shiftStackRight = (stack: number[]) => {
+    const combined = stack
+        .filter(val => val)
+        .reduce<number[]>((acc, curr) => {        
+            const pIndex = acc.length - 1
+            const pVal = acc[pIndex]
+            if(curr === pVal) {
+                acc.splice(pIndex, 1, curr + pVal)
+            } else {
+                acc.push(curr)
+            }
+            return acc
+        }, [])
+    
+    const zeros = Array(4 - combined.length).fill(0)
+    return zeros.concat(combined)
+}
+
 const modifyGroup = (array:Array<number[]>, modifier: Function) => {
     let stacked = []
     for (let step = 0; step < array.length; step++) {        
@@ -99,9 +117,25 @@ export const shiftTilesUp = (tiles: number[]) => {
     return newTilesAdded
 }
 
+export const shiftTilesDown = (tiles: number[]) => {
+    const columns = splitIntoColumns(tiles, 4)
+    const shifted = modifyGroup(columns, shiftStackRight)
+    const flattened = flattenColumns(shifted)
+    const newTilesAdded = genNewTiles(flattened)
+    return newTilesAdded
+}
+
 export const shiftTilesLeft = (tiles: number[]) => {
     const columns = splitIntoRows(tiles, 4)
     const shifted = modifyGroup(columns, shiftStackLeft)
+    const flattened = shifted.flat()
+    const newTilesAdded = genNewTiles(flattened)
+    return newTilesAdded
+}
+
+export const shiftTilesRight = (tiles: number[]) => {
+    const columns = splitIntoRows(tiles, 4)
+    const shifted = modifyGroup(columns, shiftStackRight)
     const flattened = shifted.flat()
     const newTilesAdded = genNewTiles(flattened)
     return newTilesAdded

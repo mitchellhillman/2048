@@ -1,6 +1,6 @@
 import { NgFor, NgIf } from '@angular/common';
 import { Component, HostListener } from '@angular/core';
-import {shiftTilesUp, shiftTilesLeft, genNewTiles} from '../utils/tile-manip';
+import {shiftTilesUp, shiftTilesLeft, genNewTiles, shiftTilesDown, shiftTilesRight} from '../utils/tile-manip';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -39,10 +39,12 @@ export class AppComponent {
 
   handleDown() {
     console.log('DOWN')
+    this.tiles = shiftTilesDown(this.tiles)
   }
 
   handleRight() {
     console.log('RIGHT')
+    this.tiles = shiftTilesRight(this.tiles)
   }
 
   @HostListener('document:keydown', ['$event']) 
