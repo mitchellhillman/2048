@@ -28,22 +28,18 @@ export class AppComponent {
 
 
   handleUp() {
-    console.log('UP')
     this.tiles = shiftTilesUp(this.tiles)
   }
 
   handleLeft() {
-    console.log('LEFT')
     this.tiles = shiftTilesLeft(this.tiles)
   }
 
   handleDown() {
-    console.log('DOWN')
     this.tiles = shiftTilesDown(this.tiles)
   }
 
   handleRight() {
-    console.log('RIGHT')
     this.tiles = shiftTilesRight(this.tiles)
   }
 
