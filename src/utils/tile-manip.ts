@@ -1,19 +1,19 @@
 export const shiftStackLeft = (stack: number[]) => {
-    const values = stack.filter(value => value)
+    const combined = stack
+        .filter(val => val)
+        .reduce<number[]>((acc, curr) => {        
+            const pIndex = acc.length - 1
+            const pVal = acc[pIndex]
+            if(curr === pVal) {
+                acc.splice(pIndex, 1, curr + pVal)
+            } else {
+                acc.push(curr)
+            }
+            return acc
+        }, [])
     
-    const added = values.reduce<number[]>((acc, curr, index) => {        
-        const prev = acc[acc.length - 1]
-        
-        if(curr === prev) {
-            acc.splice(acc.length-1, 1, curr + prev)
-        } else {
-            acc.push(curr)
-        }
-        return acc
-    }, [])
-    
-    const zeros = Array(4 - added.length).fill(0)
-    return added.concat(zeros)
+    const zeros = Array(4 - combined.length).fill(0)
+    return combined.concat(zeros)
 }
 
 const modifyGroup = (array:Array<number[]>, modifier: Function) => {
