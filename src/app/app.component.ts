@@ -1,6 +1,6 @@
 import { NgFor, NgIf } from '@angular/common';
 import { Component, HostListener } from '@angular/core';
-import {shiftTilesUp, shiftTilesLeft, genNewTile, shiftTilesDown, shiftTilesRight} from '../utils/tile-manip';
+import {slideTilesUp, slideTilesLeft, genNewTile, slideTilesDown, slideTilesRight} from '../utils/tile-manip';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -27,19 +27,19 @@ export class AppComponent {
   title = '2048';
 
   handleUp() {
-    this.tiles = shiftTilesUp(this.tiles)
+    this.tiles = slideTilesUp(this.tiles)
   }
 
   handleLeft() {
-    this.tiles = shiftTilesLeft(this.tiles)
+    this.tiles = slideTilesLeft(this.tiles)
   }
 
   handleDown() {
-    this.tiles = shiftTilesDown(this.tiles)
+    this.tiles = slideTilesDown(this.tiles)
   }
 
   handleRight() {
-    this.tiles = shiftTilesRight(this.tiles)
+    this.tiles = slideTilesRight(this.tiles)
   }
 
   @HostListener('document:keydown', ['$event']) 
